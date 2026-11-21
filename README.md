@@ -4,6 +4,8 @@
 
 Programmable memory built-in self-test controller with a BIST collar, evaluated by injecting realistic SRAM fault models and measuring fault coverage.
 
+![Architecture](docs/diagrams/architecture.svg)
+
 ## Design
 
 - `rtl/mbist_ctrl.sv`: March C− `{⇕(w0); ⇑(r0,w1); ⇑(r1,w0); ⇓(r0,w1); ⇓(r1,w0); ⇕(r0)}`, repeated over log₂(DW)+1 **data backgrounds** (solid, 0101…, 0011…, …), so coupling faults between bits of the same word are also sensitised
@@ -37,6 +39,12 @@ make test
 make lint
 make synth
 ```
+
+## Test run
+
+Output of the CI command (`make test lint`), captured from a local run:
+
+![Test run](docs/screenshots/test_run.svg)
 
 ## Limitations / next steps
 
